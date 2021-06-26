@@ -4,7 +4,7 @@ public class quintupleta implements Comparable {
     private String nombre_producto;
     private int conteo;
     private String estrellas;
-    private String precio_max;
+    private float precio_max;
     private int mOrden;
 
 
@@ -12,10 +12,10 @@ public class quintupleta implements Comparable {
         categoria = new String();
         nombre_producto = new String();
         estrellas = new String();
-        precio_max = new String();
+        precio_max =0;
         conteo = 0;
     }
-    public quintupleta(String c, String n, String e, String p) {
+    public quintupleta(String c, String n, String e, float p) {
         categoria = c;
         nombre_producto = n;
         estrellas = e;
@@ -44,7 +44,7 @@ public class quintupleta implements Comparable {
     public String get_Estrellas(){
         return estrellas;
     }
-    public String get_Precio_max(){
+    public float get_Precio_max(){
         return precio_max;
     }
     public int getmOrden(){

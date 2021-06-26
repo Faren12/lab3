@@ -6,9 +6,9 @@ public class volcado3 {
         int tamanoMatriz = sortedQuintuplas.size();
 
         for (int i = 0; i < tamanoMatriz; i++) {
-            Float elementoActual = Float.parseFloat(sortedQuintuplas.get(i).get_Precio_max());
+            Float elementoActual = sortedQuintuplas.get(i).get_Precio_max();
             for (int j = i; j < tamanoMatriz; j++) {
-                Float aux = Float.parseFloat(sortedQuintuplas.get(j).get_Precio_max());
+                Float aux = sortedQuintuplas.get(j).get_Precio_max();
                 matrizAdyacencia[i][j] = elementoActual - aux;
                 matrizAdyacencia[j][i] = matrizAdyacencia[i][j];
             }
@@ -87,7 +87,7 @@ public class volcado3 {
 
                         String prod_name = dataset.get(progress_index).get(3);
                         String stars = dataset.get(progress_index).get(4);
-                        String max_prices = dataset.get(progress_index).get(8);
+                        float max_prices = Float.parseFloat(dataset.get(progress_index).get(8));
                         boolean found = false;
                         for (quintupleta search : t_count) {
                             if (search.get_producto().equals(prod_name)) {
