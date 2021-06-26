@@ -96,7 +96,7 @@ public class volcado3 {
                             }
                         }
                         if (!found) {
-                            quintupleta new_tripleta = new quintupleta(new String(categories[index_categories]), prod_name, stars, max_prices);
+                            quintupleta new_tripleta = new quintupleta(categories[index_categories],prod_name, stars, max_prices);
                             t_count.add(new_tripleta);
                         }
                     }
@@ -188,7 +188,7 @@ public class volcado3 {
                     int cant = scan.nextInt();
                     System.out.println("Ha elegido todos los productos mayor al promedio "+ cant);
                     System.out.println("**Precio promedio  |   Producto   |   Categoria**");
-                    if(Stars.inOrden(maxP.root, 1, cant) == 0) {
+                    if(maxP.inOrden(maxP.root, 1, cant) == 0) {
                         System.out.println("No existe ningun producto");
                     }
                 }
@@ -197,7 +197,7 @@ public class volcado3 {
                     int cant = scan.nextInt();
                     System.out.println("Ha elegido todos los productos menor al promedio "+ cant);
                     System.out.println("**Precio promedio  |   Producto   |   Categoria**");
-                    if(Stars.inOrden(maxP.root, 2, cant) == 0) {
+                    if(maxP.inOrden(maxP.root, 2, cant) == 0) {
                         System.out.println("No existe ningun producto");
                     }
                 }
@@ -206,7 +206,7 @@ public class volcado3 {
                     int cant = scan.nextInt();
                     System.out.println("Ha elegido todos los productos exactamente al promedio "+ cant);
                     System.out.println("**Precio promedio |   Producto   |   Categoria**");
-                    if(Stars.inOrden(maxP.root, 3, cant) == 0) {
+                    if(maxP.inOrden(maxP.root, 3, cant) == 0) {
                         System.out.println("No existe ningun producto");
                     }
 
