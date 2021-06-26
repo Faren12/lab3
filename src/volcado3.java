@@ -82,7 +82,8 @@ public class volcado3 {
                 int progress_index = 0;
 
                 for (progress_index = 1; progress_index < dataset.size(); progress_index++) {
-                    if (dataset.get(progress_index).get(4) != null) {
+                    if (dataset.get(progress_index).size()>8) {
+                        
 
                         String prod_name = dataset.get(progress_index).get(3);
                         String stars = dataset.get(progress_index).get(4);
@@ -187,7 +188,7 @@ public class volcado3 {
                     int cant = scan.nextInt();
                     System.out.println("Ha elegido todos los productos mayor al promedio "+ cant);
                     System.out.println("**Precio promedio  |   Producto   |   Categoria**");
-                    if(Stars.inOrden(Stars.root, 1, cant) == 0) {
+                    if(Stars.inOrden(maxP.root, 1, cant) == 0) {
                         System.out.println("No existe ningun producto");
                     }
                 }
@@ -196,7 +197,7 @@ public class volcado3 {
                     int cant = scan.nextInt();
                     System.out.println("Ha elegido todos los productos menor al promedio "+ cant);
                     System.out.println("**Precio promedio  |   Producto   |   Categoria**");
-                    if(Stars.inOrden(Stars.root, 2, cant) == 0) {
+                    if(Stars.inOrden(maxP.root, 2, cant) == 0) {
                         System.out.println("No existe ningun producto");
                     }
                 }
@@ -205,7 +206,7 @@ public class volcado3 {
                     int cant = scan.nextInt();
                     System.out.println("Ha elegido todos los productos exactamente al promedio "+ cant);
                     System.out.println("**Precio promedio |   Producto   |   Categoria**");
-                    if(Stars.inOrden(Stars.root, 3, cant) == 0) {
+                    if(Stars.inOrden(maxP.root, 3, cant) == 0) {
                         System.out.println("No existe ningun producto");
                     }
 
