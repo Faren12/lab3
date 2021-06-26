@@ -1,5 +1,4 @@
 import java.util.*;
-import java.lang.*;
 import java.io.*;
 public class volcado3 {
 
@@ -45,15 +44,15 @@ public class volcado3 {
         Scanner scan = new Scanner(System.in);
         BufferedReader reader;
         BufferedWriter writer;
-        String[] filelist = {"mx-amazon-devices.csv", "mx-automotive.csv", "mx-baby.csv", "mx-books.csv", "mx-digital-text.csv", "mx-dvd.csv", "mx-electronics.csv", "mx-grocery.csv", "mx-handmade.csv", "mx-hpc.csv", "mx-kitchen.csv", "mx-music.csv", "mx-musical-instruments.csv", "mx-officeproduct.csv", "mx-pet-supplies.csv", "mx-shoes.csv", "mx-software.csv", "mx-sports.csv", "mx-tools.csv", "mx-videogames.csv"};
+        String[] filenames = {"mx-amazon-devices.csv", "mx-automotive.csv", "mx-baby.csv", "mx-books.csv", "mx-digital-text.csv", "mx-dvd.csv", "mx-electronics.csv", "mx-grocery.csv", "mx-handmade.csv", "mx-hpc.csv", "mx-kitchen.csv", "mx-music.csv", "mx-musical-instruments.csv", "mx-officeproduct.csv", "mx-pet-supplies.csv", "mx-shoes.csv", "mx-software.csv", "mx-sports.csv", "mx-tools.csv", "mx-videogames.csv"};
         //Para Windows, este arreglo es para meter todos los archivos a un arreglo filelist
         String[] categories = {"Devices", "Automative", "Baby", "Books", "Digital-text", "DvD", "Electronics", "Grocery", "Handmade", "Hpc", "Kitchen", "Music", "Musical-instrument", "Office-product", "Pet-supplies", "Shoes", "Software", "Sports", "Tools", "Videogames"};
 
-        ArrayList<String> filenames = new ArrayList<>();
-        for(String filelists : filelist){
-            filenames.add("C:\\Users\\sebas\\Documents\\Lab\\mexico\\csv\\" + filelists);
-            File file = new File(filelists);
-        }
+        //ArrayList<String> filenames = new ArrayList<>();
+        //for(String filelists : filelist){
+        //    filenames.add(".\\mexico\\csv\\" + filelists);
+        //    File file = new File(filelists);
+        //}
         //Para Windows, se crea un arreglo y se hace un for para acceder a los archivos y asi ingresar los datos al arreglo.
         //String[] filenames = {"./mx-amazon-devices.csv", "./mx-automotive.csv", "./mx-baby.csv", "./mx-books.csv", "./mx-digital-text.csv", "./mx-dvd.csv", "./mx-electronics.csv", "./mx-grocery.csv", "./mx-handmade.csv", "./mx-hpc.csv", "./mx-kitchen.csv", "./mx-music.csv", "./mx-musical-instruments.csv", "./mx-officeproduct.csv", "./mx-pet-supplies.csv", "./mx-shoes.csv", "./mx-software.csv", "./mx-sports.csv", "./mx-tools.csv", "./mx-toys.csv", "./mx-videogames.csv"};
         //Arreglo para acceder e ingresar los archivos, para MAC o Linux
@@ -64,7 +63,7 @@ public class volcado3 {
             for (String fn : filenames) {
                 ArrayList<ArrayList<String>> dataset = new ArrayList<ArrayList<String>>();
                 //String outfilename = fn.substring(0, fn.length() - 4) + new String("_out") + fn.substring(fn.length() - 4);
-                reader = new BufferedReader(new FileReader(fn));
+                reader = new BufferedReader(new FileReader("./csv/"+fn));
                 //writer = new BufferedWriter(new FileWriter(outfilename, false));
                 writer = new BufferedWriter(new FileWriter("count.csv", true));
                 String line = reader.readLine();
@@ -119,7 +118,12 @@ public class volcado3 {
                 }
                 ArrayList<quintupleta> sortedQuintupleta = new ArrayList<quintupleta>();
                 for (int i = 0; i<t_count.size(); i++) {
-                    float pmax = Float.parseFloat(t_count.get(i).get_Precio_max());
+                    float pmax;
+                    try{
+                        pmax = Float.parseFloat(t_count.get(i).get_Precio_max());//Intenta convertir el numero, si no puede se salta la entrada
+                    }catch(NumberFormatException e){
+                        continue;
+                    }
                     if(pmax != 0){
                         // Ordenar por PrecioMaximo
                         t_count.get(i).setmOrden(2);
