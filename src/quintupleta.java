@@ -53,7 +53,9 @@ public class quintupleta implements Comparable {
     public void setmOrden(int m){
         this.mOrden = mOrden;
     }
-
+    public void print(){
+        System.out.println(categoria+"|"+nombre_producto+"|"+conteo+"|"+estrellas+"|"+precio_max);
+    }
     @Override
     public int compareTo(Object t2) {
         int t2_count = ((quintupleta)t2).get_conteo();

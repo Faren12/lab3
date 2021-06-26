@@ -140,78 +140,8 @@ public class volcado3 {
 
                 index_categories++;
             }
-            boolean Break = false;
-            System.out.println("Ingrese 1 para ver los productos mayores a la cantidad de estrellas, 2 para los menores, 3 para la cantidad exacta y 4 para salir");
-            while (!Break){
-                int aux = scan.nextInt();
-                if(aux == 4){
-                    Break = true;
-                }
-                if(aux == 1){
-                    System.out.println("Ingrese la cantidad a evaluar");
-                    int cant = scan.nextInt();
-                    System.out.println("Ha elegido todos los productos con mayor cantidad de estrellas a "+ cant);
-                    System.out.println("**Cantidad  |   Producto   |   Categoria**");
-                    if(Stars.inOrden(Stars.root, 1, cant) == 0) {
-                        System.out.println("No existe ningun producto");
-                    }
-                }
-                else if(aux == 2){
-                    System.out.println("Ingrese la cantidad a evaluar");
-                    int cant = scan.nextInt();
-                    System.out.println("Ha elegido todos los productos con menor cantidad a "+ cant);
-                    System.out.println("**Cantidad  |   Producto   |   Categoria**");
-                    if(Stars.inOrden(Stars.root, 2, cant) == 0) {
-                        System.out.println("No existe ningun producto");
-                    }
-                }
-                else if(aux == 3){
-                    System.out.println("Ingrese la cantidad a evaluar");
-                    int cant = scan.nextInt();
-                    System.out.println("Ha elegido todos los productos exactamente a "+ cant);
-                    System.out.println("**Cantidad |   Producto   |   Categoria**");
-                    if(Stars.inOrden(Stars.root, 3, cant) == 0) {
-                        System.out.println("No existe ningun producto");
-                    }
-
-                }
-            }
-            boolean _break = false;
-            System.out.println("Ingrese 1 para ver los productos mayores al precio maximo promedio, 2 para los menores, 3 para la cantidad exacta y 4 para salir");
-            while (!_break){
-                int aux = scan.nextInt();
-                if(aux == 4){
-                    _break = true;
-                }
-                if(aux == 1){
-                    System.out.println("Ingrese la cantidad a evaluar");
-                    int cant = scan.nextInt();
-                    System.out.println("Ha elegido todos los productos mayor al promedio "+ cant);
-                    System.out.println("**Precio promedio  |   Producto   |   Categoria**");
-                    if(maxP.inOrden(maxP.root, 1, cant) == 0) {
-                        System.out.println("No existe ningun producto");
-                    }
-                }
-                else if(aux == 2){
-                    System.out.println("Ingrese la cantidad a evaluar");
-                    int cant = scan.nextInt();
-                    System.out.println("Ha elegido todos los productos menor al promedio "+ cant);
-                    System.out.println("**Precio promedio  |   Producto   |   Categoria**");
-                    if(maxP.inOrden(maxP.root, 2, cant) == 0) {
-                        System.out.println("No existe ningun producto");
-                    }
-                }
-                else if(aux == 3){
-                    System.out.println("Ingrese la cantidad a evaluar");
-                    int cant = scan.nextInt();
-                    System.out.println("Ha elegido todos los productos exactamente al promedio "+ cant);
-                    System.out.println("**Precio promedio |   Producto   |   Categoria**");
-                    if(maxP.inOrden(maxP.root, 3, cant) == 0) {
-                        System.out.println("No existe ningun producto");
-                    }
-
-                }
-            }
+            System.out.println("------------------------------------------");
+            maxP.print();
         }
         catch (IOException e){
             e.printStackTrace();

@@ -314,10 +314,18 @@ public class BST_Pmax<Key extends Comparable<Key>, Value> {
             if (key.compareTo(select(rank(key))) != 0) return false;
         return true;
     }
+    public void print(){
+        inOrden(root,1,Integer.MIN_VALUE);
+    }
     public  int inOrden(Node r, int opcion, int numero){
         //opcion 1 mayor a una cantidad
         int cont=0;
-        float Pmax = Float.parseFloat(r.val.get_Precio_max());
+        float Pmax;
+        try{
+            Pmax = Float.parseFloat(r.val.get_Precio_max());
+        }catch(NumberFormatException e){
+            Pmax=0;
+        }
         if (opcion ==1){
             if(r.left != null) {
                 cont +=inOrden(r.left, 1, numero);
@@ -326,7 +334,7 @@ public class BST_Pmax<Key extends Comparable<Key>, Value> {
                 cont +=inOrden(r.right, 1, numero);
             }
             if (r!=null && Pmax>numero) {
-                System.out.println(r.val.get_Precio_max()+ " | "+ r.val.get_producto()+ " | "+ r.val.get_categoria());
+                r.val.print();
                 cont++;
             }
         }
